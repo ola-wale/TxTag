@@ -11,9 +11,10 @@ Demo password: **Password12**
 
 [Demo URL](http://dev.owale.co/TxTag/dashboard/tags)
 
-## Build
+## Config
+The URL to the <a href="https://github.com/ola-wale/TxTag-Api">REST API</a> can be changed in `ApiService.backendUrl`
 
-`npm i` to install dependencies
+## Build
 
 `ng build -prod --base-href http://dev.owale.co/TxTag/dashboard`
 (the base url can be changed to your preferred)
@@ -21,3 +22,4 @@ Demo password: **Password12**
 ## Running unit tests
 <img src="https://github.com/ola-wale/TxTag/blob/master/gitassets/test.png" alt="Test" style="width: 500px;"/>
 Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+
