@@ -16,7 +16,7 @@ The URL to the <a href="https://github.com/ola-wale/TxTag-Api">REST API</a> can 
 
 ## Build
 
-`ng build -prod --base-href http://dev.owale.co/TxTag/dashboard`
+`ng build -prod --base-href http://dev.owale.co/TxTag/`
 (the base url can be changed to your preferred)
 
 ## Running unit tests
