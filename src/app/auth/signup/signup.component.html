@@ -1,0 +1,45 @@
+<header>
+  <div class="container">
+    <div class="auth-suggest">
+      <span>Already a user?</span><a routerLink="../login">Sign In</a>
+    </div>
+    <div class="page-title">
+      <h4>Sign up to TxTag</h4>
+    </div>
+  </div>
+</header>
+
+<div class="content">
+  <div [ngClass]="{'progress':signUpInProgress}" id="auth-card" class="col-sm-6 offset-sm-3">
+    <form (submit)="attemptSignup()" [formGroup]="signupForm">
+      <div>
+        <label for="email">Email</label>
+        <input autocomplete="email" formControlName="email" required type="email" id="email" placeholder="yahoo@gmail.com" />
+        <div *ngIf="signupForm.controls['email'].errors" class="form-errors">
+          <small *ngIf="!signupForm.controls['email'].pristine || signupForm.controls['email'].touched" class="error">A valid email address is required</small>
+        </div>
+      </div>
+      <div>
+        <label for="password">Password</label>
+        <input autocomplete="new-password" formControlName="password" required type="password" id="password" placeholder="Password" />
+        <div *ngIf="signupForm.controls['password'].errors && signupForm.controls['password'].touched" class="form-errors">
+          <small *ngIf="signupForm.controls['password'].errors.required" class="error">Password is required</small>
+          <small *ngIf="signupForm.controls['password'].errors.pattern" class="error">Your password must be 6 characters or more in length & contain at least 1 lowercase character, 1 uppercase character & a number</small>
+        </div>
+      </div>
+      <div>
+        <label for="confirm-password">Confirm Password</label>
+        <input autocomplete="new-password" formControlName="confirmPassword" required type="password" id="confirm-password" placeholder="Confirm password" />
+        <div *ngIf="signupForm.controls['confirmPassword'].errors && signupForm.controls['password'].valid" class="form-errors">
+          <small *ngIf="!signupForm.controls['password'].pristine || signupForm.controls['password'].touched" class="error">Passwords don't match</small>
+        </div>
+      </div>
+      <div *ngIf="!response?.success" class="form-errors">
+        <small *ngFor="let error of response?.errors" class="error" [innerHTML]="error.msg"></small>
+      </div>
+      <div class="actions">
+        <input [disabled]="!signupForm.valid || signUpInProgress" type="submit" value="Sign Up" />
+      </div>
+    </form>
+  </div>
+</div>

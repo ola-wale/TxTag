@@ -1,0 +1,70 @@
+//@import "vars"; https://github.com/angular/angular-cli/issues/8833
+@import "../../../../vars";
+$header_height: 70px;
+
+.inside {
+  background-color: #fff;
+  height: $header_height;
+  position: relative;
+  display: flex;
+  overflow: auto;
+  white-space: nowrap;
+
+  #logo {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: $header_height;
+    position: absolute;
+    color: white;
+    background-color: $accentColor;
+
+    & > span {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%,-50%);
+    }
+  }
+
+  .links {
+    display: flex;
+    align-items: center;
+    padding-left: 85px;
+    flex-grow: 1;
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+
+      li {
+        a{
+          color: black;
+          &.active{
+            color: $accentColor;
+          }
+        }
+        &:not(:first-child) {
+          margin-left: 16px;
+        }
+        display: inline-block;
+      }
+    }
+  }
+
+  .auth-control {
+    small {
+      font-size: 16px;
+      margin: 0 15px;
+    }
+
+    a {
+      margin-left: 5px;
+      color: white;
+    }
+    display: flex;
+    align-items: center;
+    padding: 0 15px;
+  }
+}

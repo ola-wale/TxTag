@@ -1,0 +1,36 @@
+//@import "vars"; https://github.com/angular/angular-cli/issues/8833
+@import "../../../../../vars";
+#new-tag-form {
+  label {
+    display: block;
+  }
+
+  #tx-hash-field {
+    input {
+      width: 100%;
+    }
+  }
+
+  #tx-tag-field {
+    & ::ng-deep {
+      input {
+        border: none !important;
+        font-family: inherit !important;
+        padding-left: 0 !important;
+      }
+
+      .ng2-tags-container {
+        border-bottom: 1px solid gainsboro;
+      }
+    }
+    &.active ::ng-deep{
+      .ng2-tags-container{
+        border-bottom: 1px solid $accentColor;
+      }
+    }
+  }
+
+  & > div:not(:first-child) {
+    margin-top: 15px;
+  }
+}

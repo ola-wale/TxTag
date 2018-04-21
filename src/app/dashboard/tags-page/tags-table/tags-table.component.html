@@ -1,0 +1,38 @@
+<div class="panel">
+  <div class="header">
+    <span>Tagged Transactions.</span>
+  </div>
+  <input [(ngModel)]="query" id="search-transactions" type="text" placeholder="Search" />
+  <div class="content">
+    <div class="table">
+      <div class="row head">
+        <div class="col-2 date">
+          <span>Date</span>
+        </div>
+        <div class="col-4">
+          <span>Hash</span>
+        </div>
+        <div class="col-3">
+          <span>Tags</span>
+        </div>
+        <div class="col-3">
+          <span>Actions</span>
+        </div>
+      </div>
+      <div *ngFor="let transaction of transactions | searchTransactions:'tags,hash':query" class="row rows">
+        <div class="col-2 date">
+          <span>{{transaction.date | date : 'medium'}}</span>
+        </div>
+        <div class="col-4">
+          <span>{{transaction.hash}}</span>
+        </div>
+        <div class="col-3">
+          <span>{{transaction.tags}}</span>
+        </div>
+        <div class="col-3">
+          <span><a (click)="delete(transaction)" class="button delete">Delete</a></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

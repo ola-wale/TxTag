@@ -1,0 +1,42 @@
+#search-transactions {
+  display: block;
+  width: 100%;
+  padding: 0 15px;
+}
+
+.table {
+  .row.head {
+    font-weight: bold;
+  }
+
+  .rows {
+    span {
+      word-break: break-all;
+    }
+
+    &:not(:last-child) {
+      border-bottom: 1px solid gainsboro;
+    }
+
+    &:last-child {
+      padding-bottom: 0;
+    }
+
+    a.button {
+      &.delete {
+        background-color: #e91e63;
+      }
+      display: inline-block;
+      color: white;
+      text-align: center;
+    }
+    padding: 17px 0;
+  }
+}
+@media(max-width:500px) {
+  .table {
+    .date {
+      display: none;
+    }
+  }
+}

@@ -1,0 +1,8 @@
+<div class="container-fluid">
+  <app-tags-table *ngIf="transactions?.length" [transactions]="transactions"></app-tags-table>
+  <div *ngIf="!transactions?.length" class="panel empty-transactions">
+    <img src="assets/images/empty.svg" alt="empty - /took/ this image from flaticon" />
+    <h6>No transactions</h6>
+    <small>Looks like you haven't tagged any transactions yet, <a routerLink="../">click here</a> to get started.</small>
+  </div>
+</div>

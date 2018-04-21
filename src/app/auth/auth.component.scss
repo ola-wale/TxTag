@@ -1,0 +1,70 @@
+header {
+  background-color: white;
+
+  .auth-suggest {
+    text-align: end;
+    padding-top: 15px;
+
+    span {
+      color: darkgray;
+      margin-right: 8px;
+    }
+  }
+
+  .page-title {
+    h4 {
+      font-size: 36px;
+      font-weight: 600;
+      margin-bottom: 20px;
+      text-align: center;
+      margin-top: 50px;
+      display: inline-block;
+    }
+    text-align: center;
+  }
+}
+
+.content {
+  margin-top: 40px;
+
+  #auth-card {
+    background-color: white;
+    border-radius: 3px;
+    padding: 30px;
+    position: relative;
+
+    &.progress {
+      opacity: 0.5;
+    }
+
+    form {
+      label {
+        display: block;
+        font-size: 15px;
+        color: #000;
+      }
+
+      & > div:not(:first-child) {
+        margin-top: 15px;
+      }
+
+      .actions {
+        margin-top: 30px !important;
+      }
+
+      input {
+        width: 100%;
+      }
+    }
+  }
+}
+@media(max-width:768px) {
+  header {
+    .page-title {
+      h4 {
+        font-size: 23px;
+      }
+      text-align: center;
+    }
+  }
+}

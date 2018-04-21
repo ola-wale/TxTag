@@ -7,7 +7,8 @@ import { TagInputModule } from 'ngx-chips';
 import { HttpClientModule } from '@angular/common/http';
 import { SimpleNotificationsModule } from 'angular2-notifications';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
-import { AuthInterceptor } from './services/auth-interceptor';
+import { APP_BASE_HREF } from '@angular/common';
+import { Location } from '@angular/common';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './dashboard/header/header.component';
@@ -18,14 +19,14 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { AuthComponent } from './auth/auth.component';
 import { LoginComponent } from './auth/login/login.component';
 import { SignupComponent } from './auth/signup/signup.component';
-
+import { AuthInterceptor } from './services/auth-interceptor';
 import { ApiService } from './services/api-service.service';
 import { LoggedInGuard } from './guards/logged-in.guard';
 import { LoggedOutGuard } from './guards/logged-out.guard';
 import { TagsTableComponent } from './dashboard/tags-page/tags-table/tags-table.component';
 import { SearchTransactionsPipe } from './search-transactions.pipe';
 
-@NgModule({
+export let testDependencies ={
   declarations: [
     AppComponent,
     HeaderComponent,
@@ -50,15 +51,15 @@ import { SearchTransactionsPipe } from './search-transactions.pipe';
     SimpleNotificationsModule.forRoot()
   ],
   providers: [
+    { provide: APP_BASE_HREF, useValue : '/' },
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,
       multi: true
     },
+    Location,
     ApiService,
     LoggedInGuard,
     LoggedOutGuard
-  ],
-  bootstrap: [AppComponent]
-})
-export class AppModule { }
+  ]
+};

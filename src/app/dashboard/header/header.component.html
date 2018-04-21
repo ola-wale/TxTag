@@ -1,0 +1,15 @@
+<div class="inside">
+  <div id="logo">
+    <span>T</span>
+  </div>
+  <div class="links">
+    <ul>
+      <li><a [ngClass]="{'active':currentRouteAlias == 'new'}" routerLink="./">New Tag</a></li>
+      <li><a [ngClass]="{'active':currentRouteAlias == 'tagged'}" routerLink="./tags">Tags</a></li>
+    </ul>
+  </div>
+  <div class="auth-control">
+    <small>{{ (user?.email.length>20) ? (user?.email | slice:0:20) + '..' : (user?.email) }}</small>
+    <a (click)="logOut()" class="button">Log out</a>
+  </div>
+</div>

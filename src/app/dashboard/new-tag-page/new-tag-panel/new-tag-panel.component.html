@@ -1,0 +1,24 @@
+<div class="panel">
+  <div class="header">
+    <span>Tag a new transaction.</span>
+  </div>
+  <div class="content">
+    <form (submit)="submitNewTransactionForm(newTransactionForm,$event)" [formGroup]="newTransactionForm" id="new-tag-form">
+      <div id="tx-hash-field">
+        <label for="txhash">Bitcoin Transaction Hash</label>
+        <input name="hash" formControlName="hash" type="text" placeholder="Enter Bitcoin Transaction Hash" />
+        <div *ngIf="newTransactionForm.controls['hash'].errors && newTransactionForm.controls['hash'].touched" class="form-errors">
+          <small *ngIf="newTransactionForm.controls['hash'].errors.required" class="error">Bitcoin Transaction Hash is required</small>
+          <small *ngIf="newTransactionForm.controls['hash'].errors.pattern" class="error">Enter a valid bitcoin transaction hash</small>
+        </div>
+      </div>
+      <div [ngClass]="{'active':tagFieldFocus}" id="tx-tag-field">
+        <label for="txhash">Bitcoin Transaction Tags</label>
+        <tag-input addOnBlur="true" ripple="false" (onFocus)="tagFieldFocus=true" (onBlur)="tagFieldFocus=false" theme='minimal' [(ngModel)]="tags" [ngModelOptions]="{standalone: true}"></tag-input>
+      </div>
+    </form>
+  </div>
+  <div class="actions">
+    <button [disabled]="!newTransactionForm.valid" form="new-tag-form">New Tag</button>
+  </div>
+</div>

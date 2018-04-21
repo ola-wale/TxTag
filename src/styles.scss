@@ -1,0 +1,85 @@
+@import "vars";
+@import '~bootstrap/scss/bootstrap-grid';
+$font-family-base: Avenir Next, Poppins, Arial;
+@import '~bootstrap/scss/bootstrap-reboot';
+
+html body {
+  background-color: $primaryColor;
+  margin: 0;
+}
+
+app-header {
+  display: block;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  border: none;
+  height: 38px;
+  font-size: 1em;
+  outline: 0 !important;
+  transition: all 0.2s ease-out;
+  border-bottom: 1px solid gainsboro;
+
+  &:focus {
+    border-bottom: 1px solid $accentColor;
+  }
+}
+
+button,
+input[type="submit"],
+a.button {
+  line-height: 36px;
+  padding: 0 16px;
+  border-radius: 3px;
+  color: white;
+  background-color: $accentColor;
+  font-size: 14px;
+  min-width: 80px;
+  border: none;
+  outline: 0 !important;
+  transition: all 0.2s ease-out;
+  cursor: pointer;
+
+  &[disabled] {
+    opacity: 0.5;
+  }
+
+  &:hover {
+    box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);
+  }
+
+  &:active {
+    opacity: 0.8;
+  }
+}
+
+.form-errors {
+  small.error {
+    color: red;
+  }
+}
+
+router-outlet {
+  display: block;
+}
+
+.panel {
+  $panel-padding: 15px;
+  background-color: white;
+  border-radius: 3px;
+
+  .header {
+    padding: $panel-padding;
+    border-bottom: 1px solid whitesmoke;
+  }
+
+  .content {
+    padding: $panel-padding;
+  }
+
+  .actions {
+    padding: 0 $panel-padding $panel-padding;
+  }
+}
