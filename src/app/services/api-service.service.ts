@@ -15,22 +15,22 @@ export class ApiService {
    * Performs a post request to our API to signup with the
    * formdata({email,password,confirmPassword}) as payload
    * @param  formData {SignupFormInterface}
-   * @return          an observable to subscribe to.
+   * @return promise
    */
   signup(formData: SignupFormInterface): Promise<any> {
     return this.http.post(`${this.backendUrl}/private/${this.apiVersion}/auth/signup`, formData).toPromise();
   }
   /**
-   * Performs a post request to our API to signup with the
+   * Performs a post request to our API with the
    * formdata({email,password,confirmPassword}) as payload to log the user in
    * @param  formData {SignupFormInterface}
-   * @return          an observable to subscribe to.
+   * @return promise
    */
   login(formData: LoginFormInterface): Promise<any> {
     return this.http.post(`${this.backendUrl}/private/${this.apiVersion}/auth/login`, formData).toPromise();
   }
   /**
-   * Fetch the current authenticated user
+   * Fetch the currently authenticated user
    * @return promise
    */
   getUser() {
